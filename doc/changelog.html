@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.38.2">
-    <meta name="project" content="pipette_elixir v0.1.1">
+    <meta name="project" content="pipette_elixir v0.1.2">
 
 
-    <title>Changelog — pipette_elixir v0.1.1</title>
+    <title>Changelog — pipette_elixir v0.1.2</title>
 
     <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
 
-    <script defer src="dist/sidebar_items-65D05453.js"></script>
+    <script defer src="dist/sidebar_items-71425D5E.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-DPJLHKSM.js"></script>
 
@@ -33,11 +33,11 @@
     <div class="sidebar-projectInfo">
 
       <div>
-        <a href="PipetteElixir.html" class="sidebar-projectName" translate="no">
+        <a href="Pipette.html" class="sidebar-projectName" translate="no">
 pipette_elixir
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.1.1
+          v0.1.2
         </div>
       </div>
     </div>
@@ -80,7 +80,7 @@ pipette_elixir
   </div>
 
 
-<h2 id="v0-1-0" class="section-heading"><a href="#v0-1-0" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">v0.1.0</span></h2><p>Initial release.</p><ul><li>  <code class="inline">Pipette.Control</code>: <a href="https://hexdocs.pm/elixir/Kernel.html#tap/2"><code class="inline">tap/2</code></a>, <code class="inline">pipe_when/3</code>, <code class="inline">pipe_unless/3</code>, <code class="inline">pipe_case/2</code>, <code class="inline">dbg_when/2</code></li><li>  <code class="inline">Pipette.Result</code>: <code class="inline">ok/1</code>, <code class="inline">error/1</code>, <code class="inline">presence/2</code>, <code class="inline">bind/2</code>, <code class="inline">map_ok/2</code>, <code class="inline">map_error/2</code>, <code class="inline">with_default/2</code>, <code class="inline">sequence/1</code>, <code class="inline">traverse/2</code></li><li>  <code class="inline">Pipette.Deep</code>: <code class="inline">dig_get/3</code>, <code class="inline">dig_put/3</code>, <code class="inline">dig_update/3</code>, <code class="inline">dig_pop/2</code></li><li>  <code class="inline">Pipette.Path</code>: <code class="inline">~p</code> sigil</li><li>  <code class="inline">Pipette.Parallel</code>: <code class="inline">pmap/3</code>, <code class="inline">pmap_reduce/5</code>, <code class="inline">pfilter/3</code></li></ul>
+<h2 id="v0-1-2" class="section-heading"><a href="#v0-1-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">v0.1.2</span></h2><ul><li>  Refactor: Renamed code namespace from <code class="inline">PipetteElixir</code> to <a href="Pipette.html"><code class="inline">Pipette</code></a>.<ul><li>  All modules are now under the <a href="Pipette.html"><code class="inline">Pipette</code></a> namespace (e.g., <a href="Pipette.Control.html"><code class="inline">Pipette.Control</code></a>, <a href="Pipette.Result.html"><code class="inline">Pipette.Result</code></a>).</li><li>  The main application module is now <code class="inline">Pipette.Application</code>.</li><li>  Updated <code class="inline">README.md</code> and test files to reflect the new namespace.</li></ul></li></ul><h2 id="v0-1-1" class="section-heading"><a href="#v0-1-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">v0.1.1</span></h2><ul><li>  Fix: Corrected compilation issues and invalid Hex package name format.</li></ul><h2 id="v0-1-0" class="section-heading"><a href="#v0-1-0" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">v0.1.0</span></h2><p>Initial release.</p><ul><li>  <a href="Pipette.Control.html"><code class="inline">Pipette.Control</code></a>: <a href="https://hexdocs.pm/elixir/Kernel.html#tap/2"><code class="inline">tap/2</code></a>, <code class="inline">pipe_when/3</code>, <code class="inline">pipe_unless/3</code>, <code class="inline">pipe_case/2</code>, <code class="inline">dbg_when/2</code></li><li>  <a href="Pipette.Result.html"><code class="inline">Pipette.Result</code></a>: <code class="inline">ok/1</code>, <code class="inline">error/1</code>, <code class="inline">presence/2</code>, <code class="inline">bind/2</code>, <code class="inline">map_ok/2</code>, <code class="inline">map_error/2</code>, <code class="inline">with_default/2</code>, <code class="inline">sequence/1</code>, <code class="inline">traverse/2</code></li><li>  <a href="Pipette.Deep.html"><code class="inline">Pipette.Deep</code></a>: <code class="inline">dig_get/3</code>, <code class="inline">dig_put/3</code>, <code class="inline">dig_update/3</code>, <code class="inline">dig_pop/2</code></li><li>  <a href="Pipette.Path.html"><code class="inline">Pipette.Path</code></a>: <code class="inline">~p</code> sigil</li><li>  <a href="Pipette.Parallel.html"><code class="inline">Pipette.Parallel</code></a>: <code class="inline">pmap/3</code>, <code class="inline">pmap_reduce/5</code>, <code class="inline">pfilter/3</code></li></ul>
 
 </div>
 
@@ -105,11 +105,11 @@ Pipette
       <p>
 
           <span class="line">
-            <a href="https://hex.pm/packages/pipette_elixir/0.1.1" class="footer-hex-package">Hex Package</a>
+            <a href="https://hex.pm/packages/pipette_elixir/0.1.2" class="footer-hex-package">Hex Package</a>
 
-            <a href="https://preview.hex.pm/preview/pipette_elixir/0.1.1">Hex Preview</a>
+            <a href="https://preview.hex.pm/preview/pipette_elixir/0.1.2">Hex Preview</a>
 
-              (<a href="https://preview.hex.pm/preview/pipette_elixir/0.1.1/show/CHANGELOG.md">current file</a>)
+              (<a href="https://preview.hex.pm/preview/pipette_elixir/0.1.2/show/CHANGELOG.md">current file</a>)
 
           </span>
 

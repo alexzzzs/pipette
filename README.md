@@ -68,7 +68,7 @@ Pipette helps you write cleaner, more functional Elixir code by:
 
 ## Documentation
 
-Full documentation, including a comprehensive API reference and additional examples, can be found at [https://hexdocs.pm/pipette_elixir](https://hexdocs.pm/pipette_elixir).
+Full documentation, including a comprehensive API reference and additional examples, can be found at the main module documentation: [https://hexdocs.pm/pipette_elixir/0.1.2/Pipette.html](https://hexdocs.pm/pipette_elixir/0.1.2/Pipette.html).
 
 ## Source Code
 

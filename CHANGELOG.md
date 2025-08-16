@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.2
+
+*   Refactor: Renamed code namespace from `PipetteElixir` to `Pipette`.
+    *   All modules are now under the `Pipette` namespace (e.g., `Pipette.Control`, `Pipette.Result`).
+    *   The main application module is now `Pipette.Application`.
+    *   Updated `README.md` and test files to reflect the new namespace.
+
+## v0.1.1
+
+*   Fix: Corrected compilation issues and invalid Hex package name format.
+
 ## v0.1.0
 
 Initial release.
