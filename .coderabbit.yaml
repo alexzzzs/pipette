@@ -1,0 +1,43 @@
+language: "en-US"
+
+# Review behavior
+reviews:
+  profile: "chill"           # Options: "chill", "balanced", "strict"
+  high_level_summary: true   # Add a PR-level summary
+  review_status: true        # Post a review status check
+  auto_review:
+    enabled: true            # Automatically review all new PRs
+    drafts: false            # If true, reviews draft PRs too
+    updates: true            # Re-review PRs after updates
+    force: false             # If true, force review even without changes
+  comments:
+    max_comments: 15         # Max comments per PR
+    summarize_small_prs: true
+  walkthrough: true          # Add a walkthrough comment for big PRs
+
+# PR summary generation
+summaries:
+  enabled: true
+  add_if_missing: true       # Auto-add if PR description is missing
+  max_length: 500            # Max characters in the summary
+
+# Chat assistant in PR comments
+chat:
+  auto_reply: true           # Automatically reply when mentioned
+  inline: true               # Allow inline conversations
+  allow_generate: true       # Allow @coderabbitai to generate commits/branches
+
+# Path filters (review only relevant files)
+filters:
+  include:
+    - "src/**"
+    - "lib/**"
+  exclude:
+    - "tests/**"
+    - "docs/**"
+    - "**/*.md"
+
+# Notifications
+notifications:
+  pull_request: true         # Post results on PRs
+  issues: false              # Don’t post on issues by default
