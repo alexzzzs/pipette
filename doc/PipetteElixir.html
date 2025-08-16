@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="pipette_elixir v0.1.1">
+
+
+    <title>PipetteElixir — pipette_elixir v0.1.1</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65D05453.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="PipetteElixir.html" class="sidebar-projectName" translate="no">
+pipette_elixir
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-module" id="main" data-type="modules">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of pipette_elixir</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>
+      <span translate="no">PipetteElixir</span> 
+      <small class="app-vsn" translate="no">(pipette_elixir v0.1.1)</small>
+
+    </h1>
+
+  </div>
+
+
+    <section id="moduledoc">
+<p>Pipeline-first utilities: control, result, deep paths, bounded parallelism.</p>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#and_then/2" data-no-tooltip="" translate="no">and_then(r, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.bind/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#bind/2" data-no-tooltip="" translate="no">bind(r, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.bind/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#dbg_when/2" data-no-tooltip="" translate="no">dbg_when(v, c)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Control.dbg_when/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#dig_get/3" data-no-tooltip="" translate="no">dig_get(d, p, defv)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Deep.dig_get/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#dig_pop/2" data-no-tooltip="" translate="no">dig_pop(d, p)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Deep.dig_pop/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#dig_put/3" data-no-tooltip="" translate="no">dig_put(d, p, v)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Deep.dig_put/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#dig_update/3" data-no-tooltip="" translate="no">dig_update(d, p, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Deep.dig_update/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#do_tap/2" data-no-tooltip="" translate="no">do_tap(v, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Control.do_tap/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#error/1" data-no-tooltip="" translate="no">error(e)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.error/1</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#map_error/2" data-no-tooltip="" translate="no">map_error(r, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.map_error/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#map_ok/2" data-no-tooltip="" translate="no">map_ok(r, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.map_ok/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#ok/1" data-no-tooltip="" translate="no">ok(v)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.ok/1</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pfilter/3" data-no-tooltip="" translate="no">pfilter(e, p, opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Parallel.pfilter/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pipe_case/2" data-no-tooltip="" translate="no">pipe_case(v, list)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pipe_unless/3" data-no-tooltip="" translate="no">pipe_unless(v, c, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Control.pipe_unless/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pipe_when/3" data-no-tooltip="" translate="no">pipe_when(v, c, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Control.pipe_when/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pmap/3" data-no-tooltip="" translate="no">pmap(e, f, opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Parallel.pmap/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pmap_reduce/5" data-no-tooltip="" translate="no">pmap_reduce(e, i, m, r, opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Parallel.pmap_reduce/5</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#presence/2" data-no-tooltip="" translate="no">presence(v, err)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.presence/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sequence/1" data-no-tooltip="" translate="no">sequence(rs)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.sequence/1</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#traverse/2" data-no-tooltip="" translate="no">traverse(xs, f)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.traverse/2</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#with_default/2" data-no-tooltip="" translate="no">with_default(r, d)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>See <a><code class="inline">PipetteElixir.Result.with_default/2</code></a>.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="and_then/2">
+
+  <div class="detail-header">
+    <a href="#and_then/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">and_then(r, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#bind/2"><code class="inline">PipetteElixir.Result.bind/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="bind/2">
+
+  <div class="detail-header">
+    <a href="#bind/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">bind(r, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#bind/2"><code class="inline">PipetteElixir.Result.bind/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="dbg_when/2">
+
+  <div class="detail-header">
+    <a href="#dbg_when/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">dbg_when(v, c)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Control.html#dbg_when/2"><code class="inline">PipetteElixir.Control.dbg_when/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="dig_get/3">
+
+  <div class="detail-header">
+    <a href="#dig_get/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">dig_get(d, p, defv)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Deep.html#dig_get/3"><code class="inline">PipetteElixir.Deep.dig_get/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="dig_pop/2">
+
+  <div class="detail-header">
+    <a href="#dig_pop/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">dig_pop(d, p)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Deep.html#dig_pop/2"><code class="inline">PipetteElixir.Deep.dig_pop/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="dig_put/3">
+
+  <div class="detail-header">
+    <a href="#dig_put/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">dig_put(d, p, v)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Deep.html#dig_put/3"><code class="inline">PipetteElixir.Deep.dig_put/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="dig_update/3">
+
+  <div class="detail-header">
+    <a href="#dig_update/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">dig_update(d, p, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Deep.html#dig_update/3"><code class="inline">PipetteElixir.Deep.dig_update/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="do_tap/2">
+
+  <div class="detail-header">
+    <a href="#do_tap/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">do_tap(v, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Control.html#do_tap/2"><code class="inline">PipetteElixir.Control.do_tap/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="error/1">
+
+  <div class="detail-header">
+    <a href="#error/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">error(e)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#error/1"><code class="inline">PipetteElixir.Result.error/1</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="map_error/2">
+
+  <div class="detail-header">
+    <a href="#map_error/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">map_error(r, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#map_error/2"><code class="inline">PipetteElixir.Result.map_error/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="map_ok/2">
+
+  <div class="detail-header">
+    <a href="#map_ok/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">map_ok(r, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#map_ok/2"><code class="inline">PipetteElixir.Result.map_ok/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="ok/1">
+
+  <div class="detail-header">
+    <a href="#ok/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">ok(v)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#ok/1"><code class="inline">PipetteElixir.Result.ok/1</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="pfilter/3">
+
+  <div class="detail-header">
+    <a href="#pfilter/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">pfilter(e, p, opts)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Parallel.html#pfilter/3"><code class="inline">PipetteElixir.Parallel.pfilter/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="pipe_case/2">
+
+  <div class="detail-header">
+    <a href="#pipe_case/2" class="detail-link" data-no-tooltip="" aria-label="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">pipe_case(v, list)</h1>
+
+        <span class="note">(macro)</span>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="pipe_unless/3">
+
+  <div class="detail-header">
+    <a href="#pipe_unless/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">pipe_unless(v, c, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Control.html#pipe_unless/3"><code class="inline">PipetteElixir.Control.pipe_unless/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="pipe_when/3">
+
+  <div class="detail-header">
+    <a href="#pipe_when/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">pipe_when(v, c, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Control.html#pipe_when/3"><code class="inline">PipetteElixir.Control.pipe_when/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="pmap/3">
+
+  <div class="detail-header">
+    <a href="#pmap/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">pmap(e, f, opts)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Parallel.html#pmap/3"><code class="inline">PipetteElixir.Parallel.pmap/3</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="pmap_reduce/5">
+
+  <div class="detail-header">
+    <a href="#pmap_reduce/5" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">pmap_reduce(e, i, m, r, opts)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Parallel.html#pmap_reduce/5"><code class="inline">PipetteElixir.Parallel.pmap_reduce/5</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="presence/2">
+
+  <div class="detail-header">
+    <a href="#presence/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">presence(v, err)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#presence/2"><code class="inline">PipetteElixir.Result.presence/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="sequence/1">
+
+  <div class="detail-header">
+    <a href="#sequence/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">sequence(rs)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#sequence/1"><code class="inline">PipetteElixir.Result.sequence/1</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="traverse/2">
+
+  <div class="detail-header">
+    <a href="#traverse/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">traverse(xs, f)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#traverse/2"><code class="inline">PipetteElixir.Result.traverse/2</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="with_default/2">
+
+  <div class="detail-header">
+    <a href="#with_default/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">with_default(r, d)</h1>
+
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>See <a href="PipetteElixir.Result.html#with_default/2"><code class="inline">PipetteElixir.Result.with_default/2</code></a>.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+          <span class="line">
+            <a href="https://hex.pm/packages/pipette_elixir/0.1.1" class="footer-hex-package">Hex Package</a>
+
+            <a href="https://preview.hex.pm/preview/pipette_elixir/0.1.1">Hex Preview</a>
+
+          </span>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="pipette_elixir.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

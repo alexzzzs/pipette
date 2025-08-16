@@ -1,16 +1,16 @@
-defmodule Pipette.MixProject do
+defmodule PipetteElixir.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :pipette,
-      version: "0.1.0",
+      app: :pipette_elixir,
+      version: "0.1.1",
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: "Pipeline-first utilities: control, result, deep paths, parallelism.",
-      package: [licenses: ["MIT"], links: %{"GitHub" => "https://github.com/user/repo"}],
-      docs: [main: "Pipette", extras: ["README.md", "CHANGELOG.md"]]
+      package: [licenses: ["MIT"], links: %{"GitHub" => "https://github.com/alexzzzs/pipette"}],
+      docs: [main: "PipetteElixir", extras: ["README.md", "CHANGELOG.md"]]
     ]
   end
 

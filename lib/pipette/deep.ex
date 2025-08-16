@@ -1,6 +1,6 @@
-defmodule Pipette.Deep do
+defmodule PipetteElixir.Deep do
   @moduledoc "Deep data manipulation with paths and wildcards."
-  alias Pipette.Path, as: Path
+  alias PipetteElixir.Path, as: Path
 
   @type path :: Path.t()
 

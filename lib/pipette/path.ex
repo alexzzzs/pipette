@@ -1,4 +1,4 @@
-defmodule Pipette.Path do
+defmodule PipetteElixir.Path do
   @moduledoc "Path representation and sigil."
 
   @type segment :: atom() | integer() | :* | {:filter, (any() -> as_boolean(term()))}
@@ -17,8 +17,7 @@ defmodule Pipette.Path do
   @doc """
   Parses a slash path string into a list of segments.
 
-      Pipette.Path.parse("/users/*/email")  #=> [:users, :*, :email]
-      Pipette.Path.parse("/items/0/id")     #=> [:items, 0, :id]
+      
   """
   @spec parse(String.t()) :: t()
   def parse(path_string) do

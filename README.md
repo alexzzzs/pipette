@@ -19,12 +19,12 @@ Pipette is built upon four core principles, each addressing a key aspect of effi
 
 ## Installation
 
-Add `pipette` to your list of dependencies in `mix.exs`:
+Add `pipette_elixir` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:pipette, "~> 0.1.0"}
+    {:pipette_elixir, "~> 0.1.1"}
   ]
 end
 ```
@@ -34,8 +34,8 @@ end
 Pipette provides a set of powerful functions that integrate directly into your Elixir pipelines. Here are a few examples demonstrating its capabilities:
 
 ```elixir
-import Pipette
-import Pipette.Path, only: [sigil_p: 2]
+import PipetteElixir
+import PipetteElixir.Path, only: [sigil_p: 2]
 
 # Form validation: Safely extract, validate, and transform user input.
 # This example demonstrates using `dig_get` for deep data access,
@@ -68,7 +68,7 @@ Pipette helps you write cleaner, more functional Elixir code by:
 
 ## Documentation
 
-Full documentation, including a comprehensive API reference and additional examples, can be found at [https://hexdocs.pm/pipette](https://hexdocs.pm/pipette).
+Full documentation, including a comprehensive API reference and additional examples, can be found at [https://hexdocs.pm/pipette_elixir](https://hexdocs.pm/pipette_elixir).
 
 ## Source Code
 

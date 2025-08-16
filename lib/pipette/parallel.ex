@@ -1,4 +1,4 @@
-defmodule Pipette.Parallel do
+defmodule PipetteElixir.Parallel do
   @moduledoc "Bounded parallelism that feels like Enum."
   @type pmap_opt ::
           {:max_concurrency, pos_integer()}

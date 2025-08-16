@@ -1,4 +1,4 @@
-defmodule Pipette.Control do
+defmodule PipetteElixir.Control do
   @moduledoc "Pipe control combinators."
 
   @doc "Run `fun.(value)` without changing the value."
