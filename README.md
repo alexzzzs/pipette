@@ -2,6 +2,8 @@
 
 **Pipette** is a collection of pipeline-first utilities designed to enhance the ergonomics and expressiveness of data transformations in Elixir. It provides a focused set of tools that seamlessly integrate into `|>` pipelines, making your code more readable, maintainable, and robust.
 
+For a comprehensive guide and API reference, please see the [full documentation](documentation.md).
+
 ## Philosophy
 
 **Goal**: To provide ergonomic helpers that naturally fit into `|>` pipelines, simplifying common Elixir programming patterns. Pipette aims to solve specific problems related to data flow, error handling, and controlled parallelism within a pipeline context.
@@ -68,7 +70,7 @@ Pipette helps you write cleaner, more functional Elixir code by:
 
 ## Documentation
 
-Full documentation, including a comprehensive API reference and additional examples, can be found at the main module documentation: [https://hexdocs.pm/pipette_elixir/0.1.2/Pipette.html](https://hexdocs.pm/pipette_elixir/0.1.2/Pipette.html).
+Full documentation, including a comprehensive API reference and additional examples, can be found in [documentation.md](documentation.md).
 
 ## Source Code
 
