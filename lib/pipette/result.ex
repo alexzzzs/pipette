@@ -10,15 +10,10 @@ defmodule Pipette.Result do
 
   @doc "Convert nil/blank to error; pass through non-nil as {:ok, value}."
   @spec presence(any(), term()) :: result(any())
-  def presence(nil, err) do
+    def presence(v, err) when is_nil(v) or v == "" do
     {:error, err}
   end
-  def presence("", err) do
-    {:error, err}
-  end
-  def presence(v, _) do
-    {:ok, v}
-  end
+  def presence(v, _), do: {:ok, v}
 
   @doc "Map ok value; leave error untouched."
   @spec map_ok(result(a), (a -> b)) :: result(b) when a: var, b: var
