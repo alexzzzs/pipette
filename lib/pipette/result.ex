@@ -1,4 +1,4 @@
-defmodule PipetteElixir.Result do
+defmodule Pipette.Result do
   @moduledoc "Result helpers for {:ok, _} / {:error, _} flows."
   @type result(a) :: {:ok, a} | {:error, term()}
 

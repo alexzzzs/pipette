@@ -1,4 +1,4 @@
-defmodule PipetteElixir.Path do
+defmodule Pipette.Path do
   @moduledoc "Path representation and sigil."
 
   @type segment :: atom() | integer() | :* | {:filter, (any() -> as_boolean(term()))}

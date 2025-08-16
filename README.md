@@ -34,8 +34,8 @@ end
 Pipette provides a set of powerful functions that integrate directly into your Elixir pipelines. Here are a few examples demonstrating its capabilities:
 
 ```elixir
-import PipetteElixir
-import PipetteElixir.Path, only: [sigil_p: 2]
+import Pipette
+import Pipette.Path, only: [sigil_p: 2]
 
 # Form validation: Safely extract, validate, and transform user input.
 # This example demonstrates using `dig_get` for deep data access,

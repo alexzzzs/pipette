@@ -1,8 +1,8 @@
-defmodule PipetteElixir.ControlTest do
+defmodule Pipette.ControlTest do
   use ExUnit.Case, async: true
-  import PipetteElixir.Control
+  import Pipette.Control
 
-  doctest PipetteElixir.Control
+  doctest Pipette.Control
 
   test "do_tap/2" do
     _x = 0

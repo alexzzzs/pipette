@@ -1,4 +1,4 @@
-defmodule PipetteElixir.Deep do
+defmodule Pipette.Deep do
   @moduledoc "Deep data manipulation with paths and wildcards."
   alias PipetteElixir.Path, as: Path
 
