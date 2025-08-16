@@ -1,0 +1,13 @@
+{application,pipette_elixir,
+             [{modules,['Elixir.Pipette','Elixir.Pipette.Application',
+                        'Elixir.Pipette.Control','Elixir.Pipette.Deep',
+                        'Elixir.Pipette.Parallel','Elixir.Pipette.Path',
+                        'Elixir.Pipette.Result']},
+              {compile_env,[{elixir,[dbg_callback],
+                                    {ok,{'Elixir.Macro',dbg,[]}}}]},
+              {optional_applications,[]},
+              {applications,[kernel,stdlib,elixir,logger,stream_data]},
+              {description,"Pipeline-first utilities: control, result, deep paths, parallelism."},
+              {registered,[]},
+              {vsn,"0.1.1"},
+              {mod,{'Elixir.Pipette.Application',[]}}]}.
