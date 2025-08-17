@@ -17,7 +17,7 @@ defmodule Pipette.Lens do
   """
   @spec key(atom()) :: lens(map(), any())
   def key(k) do
-    %{ 
+    %{
       view: fn m -> Map.get(m, k) end,
       set: fn v, m -> Map.put(m, k, v) end
     }
@@ -28,7 +28,7 @@ defmodule Pipette.Lens do
   """
   @spec index(integer()) :: lens(list(), any())
   def index(i) do
-    %{ 
+    %{
       view: fn l -> Enum.at(l, i) end,
       set: fn v, l -> List.replace_at(l, i, v) end
     }
@@ -62,10 +62,36 @@ defmodule Pipette.Lens do
   def view(lens, data), do: lens.view.(data)
 
   @doc """
+  Pipeline-friendly version of view/2. Views the value at the focus of the lens.
+
+  ## Examples
+
+      iex> data = %{user: %{name: "Alice"}}
+      iex> lens = Pipette.Lens.compose(Pipette.Lens.key(:user), Pipette.Lens.key(:name))
+      iex> Pipette.Lens.view_at(data, lens)
+      "Alice"
+  """
+  @spec view_at(s, lens(s, a)) :: a when s: var, a: var
+  def view_at(data, lens), do: lens.view.(data)
+
+  @doc """
   Sets the value at the focus of the lens.
   """
   @spec set(lens(s, a), a, s) :: s when s: var, a: var
   def set(lens, value, data), do: lens.set.(value, data)
+
+  @doc """
+  Pipeline-friendly version of set/3. Sets the value at the focus of the lens.
+
+  ## Examples
+
+      iex> data = %{user: %{name: "Alice"}}
+      iex> lens = Pipette.Lens.compose(Pipette.Lens.key(:user), Pipette.Lens.key(:name))
+      iex> Pipette.Lens.set_at(data, lens, "Bob")
+      %{user: %{name: "Bob"}}
+  """
+  @spec set_at(s, lens(s, a), a) :: s when s: var, a: var
+  def set_at(data, lens, value), do: lens.set.(value, data)
 
   @doc """
   Applies a function to the value at the focus of the lens.
@@ -75,5 +101,22 @@ defmodule Pipette.Lens do
     value = view(lens, data)
     new_value = fun.(value)
     set(lens, new_value, data)
+  end
+
+  @doc """
+  Pipeline-friendly version of over/3. Applies a function to the value at the focus of the lens.
+
+  ## Examples
+
+      iex> data = %{user: %{name: "Alice"}}
+      iex> lens = Pipette.Lens.compose(Pipette.Lens.key(:user), Pipette.Lens.key(:name))
+      iex> Pipette.Lens.over_at(data, lens, &String.upcase/1)
+      %{user: %{name: "ALICE"}}
+  """
+  @spec over_at(s, lens(s, a), (a -> a)) :: s when s: var, a: var
+  def over_at(data, lens, fun) do
+    value = view_at(data, lens)
+    new_value = fun.(value)
+    set_at(data, lens, new_value)
   end
 end

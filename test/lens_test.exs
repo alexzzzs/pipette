@@ -54,4 +54,14 @@ defmodule Pipette.LensTest do
     assert set(second_item_value_lens, "B", data) == [%{id: 1, value: "a"}, %{id: 2, value: "B"}]
     assert over(second_item_value_lens, &String.upcase/1, data) == [%{id: 1, value: "a"}, %{id: 2, value: "B"}]
   end
+
+  test "pipeline-friendly lens functions" do
+    data = %{user: %{name: "Alice", age: 30}}
+    user_name_lens = compose(key(:user), key(:name))
+
+    # Test pipeline-friendly versions
+    assert data |> view_at(user_name_lens) == "Alice"
+    assert data |> set_at(user_name_lens, "Bob") == %{user: %{name: "Bob", age: 30}}
+    assert data |> over_at(user_name_lens, &String.upcase/1) == %{user: %{name: "ALICE", age: 30}}
+  end
 end

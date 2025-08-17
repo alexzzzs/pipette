@@ -27,7 +27,7 @@ Add `pipette_elixir` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:pipette_elixir, "~> 0.1.1"}
+    {:pipette_elixir, "~> 0.1.3"}
   ]
 end
 ```
@@ -71,7 +71,6 @@ user
 |> Pipette.Lens.over(name_lens, &String.upcase/1)
 #=> %{id: 1, profile: %{name: "ALICE", email: "alice@example.com"}}
 ```
-```
 
 ## Why Pipette?
 
@@ -84,7 +83,7 @@ Pipette helps you write cleaner, more functional Elixir code by:
 
 ## Documentation
 
-Full documentation, including a comprehensive API reference and additional examples, can be found in [documentation.md](documentation.md).
+Full documentation, including a comprehensive API reference and additional examples, can be found in the [API Reference](api-reference.html).
 
 ## Source Code
 

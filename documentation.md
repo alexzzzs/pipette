@@ -25,7 +25,7 @@ Add `pipette_elixir` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:pipette_elixir, "~> 0.1.1"}
+    {:pipette_elixir, "~> 0.1.3"}
   ]
 end
 ```
