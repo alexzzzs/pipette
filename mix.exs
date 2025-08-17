@@ -10,14 +10,13 @@ defmodule PipetteElixir.MixProject do
       deps: deps(),
       description: "Pipeline-first utilities: control, result, deep paths, parallelism.",
       package: [licenses: ["MIT"], links: %{"GitHub" => "https://github.com/alexzzzs/pipette"}],
-      docs: [main: "Pipette", extras: ["README.md", "CHANGELOG.md"]]
+      docs: [main: "Pipette", extras: ["README.md", "CHANGELOG.md", "documentation.md"]]
     ]
   end
 
   def application do
     [
-      extra_applications: [:logger],
-      mod: {Pipette.Application, []}
+      extra_applications: [:logger]
     ]
   end
 

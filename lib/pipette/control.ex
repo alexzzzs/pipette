@@ -13,10 +13,16 @@ defmodule Pipette.Control do
   def pipe_when(value, cond, fun) when is_function(fun, 1) do
     if cond, do: fun.(value), else: value
   end
+  def pipe_when(_value, _cond, fun) do
+    raise ArgumentError, "Function must be arity 1, got: #{inspect(fun)}"
+  end
 
   @doc "Inverse of pipe_when."
   @spec pipe_unless(any(), any(), (any() -> any())) :: any()
-  def pipe_unless(value, cond, fun), do: pipe_when(value, !cond, fun)
+  def pipe_unless(value, cond, fun) when is_function(fun, 1), do: pipe_when(value, !cond, fun)
+  def pipe_unless(_value, _cond, fun) do
+    raise ArgumentError, "Function must be arity 1, got: #{inspect(fun)}"
+  end
 
   @doc """
   Pattern-match inside a pipeline while keeping it flowing.

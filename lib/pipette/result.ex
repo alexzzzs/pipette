@@ -8,7 +8,20 @@ defmodule Pipette.Result do
   @spec error(term()) :: result(any())
   def error(e), do: {:error, e}
 
-  @doc "Convert nil/blank to error; pass through non-nil as {:ok, value}."
+  @doc """
+  Convert nil/blank to error; pass through non-nil as {:ok, value}.
+
+  ## Examples
+
+      iex> Pipette.Result.presence("hello", :missing)
+      {:ok, "hello"}
+
+      iex> Pipette.Result.presence(nil, :missing)
+      {:error, :missing}
+
+      iex> Pipette.Result.presence("", :empty)
+      {:error, :empty}
+  """
   @spec presence(any(), term()) :: result(any())
     def presence(v, err) when is_nil(v) or v == "" do
     {:error, err}

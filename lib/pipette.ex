@@ -25,6 +25,7 @@ defmodule Pipette do
   defdelegate sequence(rs),      to: Pipette.Result
   defdelegate traverse(xs,f),    to: Pipette.Result
 
+  defdelegate dig_get(d,p), to: Pipette.Deep
   defdelegate dig_get(d,p,defv), to: Pipette.Deep
   defdelegate dig_put(d,p,v),           to: Pipette.Deep
   defdelegate dig_update(d,p,f),        to: Pipette.Deep

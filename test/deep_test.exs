@@ -2,16 +2,29 @@ defmodule Pipette.DeepTest do
   use ExUnit.Case, async: true
   use ExUnitProperties
   import Pipette.Deep
-  
+
 
   doctest Pipette.Deep
+
+  test "dig_get/2 defaults to nil" do
+    data = %{user: %{name: "Alice"}}
+    assert dig_get(data, [:user, :name]) == "Alice"
+    assert dig_get(data, [:user, :email]) == nil
+    assert dig_get(data, [:missing]) == nil
+  end
+
+  test "dig_get/2 works in pipelines" do
+    result = %{user: %{profile: %{email: "alice@example.com"}}}
+             |> dig_get([:user, :profile, :email])
+    assert result == "alice@example.com"
+  end
 
   property "dig_put then dig_get is identity" do
     check all(data <- term(),
               path_str <- string([?a..?z, ?0..?9], min_length: 1),
               value <- term()) do
       path = Pipette.Path.parse(path_str)
-      
+
       # Now, I will check if the path is valid
       # A valid path does not contain :*
       unless Enum.member?(path, :*) do
