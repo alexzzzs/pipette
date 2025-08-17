@@ -16,6 +16,7 @@ Pipette is built upon four core principles, each addressing a key aspect of effi
 2.  **Result/Maybe Flow**: Tools for managing and propagating success and failure states within pipelines, promoting clear error handling and reducing boilerplate for `{:ok, value}` and `{:error, reason}` patterns.
 3.  **Deep Data Paths**: Convenient mechanisms for safely accessing and transforming deeply nested data structures, reducing the verbosity often associated with complex map or struct manipulations.
 4.  **Bounded Parallelism**: Functions that enable controlled parallel execution within pipelines, offering performance benefits for I/O-bound operations while maintaining a familiar `Enum`-like interface.
+5.  **Functional Lenses**: Tools for immutably focusing on, viewing, setting, and transforming specific parts of nested data structures.
 
 ## Installation
 
@@ -490,6 +491,119 @@ Pipette helps you write cleaner, more functional Elixir code by:
 *   **Simplifying Data Access**: Safely navigate and modify complex data structures with concise path-based operations.
 *   **Optimizing Performance**: Leverage controlled parallelism for I/O-bound tasks without sacrificing code clarity.
 
+### `Pipette.Path`
+
+Defines the structure for paths used in `Pipette.Deep` and provides a convenient sigil for parsing them.
+
+#### `~p"path/string"` (sigil)
+
+Parses a slash-separated path string into a list of segments.
+*   Atom keys: `~p"/users/name"` => `[:users, :name]`
+*   Integer indices: `~p"/items/0/id"` => `[:items, 0, :id]`
+*   Wildcard: `~p"/users/*/email"` => `[:users, :*, :email]`
+
+```elixir
+import Pipette.Path, only: [sigil_p: 2]
+
+~p"/users/0/profile/email"
+# => [:users, 0, :profile, :email]
+
+~p"/data/*/value"
+# => [:data, :*, :value]
+```
+
+#### `parse(path_string)`
+
+Parses a slash path string into a list of segments. This is the underlying function used by the `~p` sigil.
+
+```elixir
+Pipette.Path.parse("/users/0/profile/email")
+# => [:users, 0, :profile, :email]
+
+Pipette.Path.parse("data/*/value")
+# => [:data, :*, :value]
+```
+
+## Why Pipette?
+
+Pipette helps you write cleaner, more functional Elixir code by:
+
+*   **Improving Readability**: By keeping operations within the pipeline, the flow of data is clear and easy to follow.
+*   **Enhancing Error Handling**: Explicitly managing success and error states within the pipeline reduces the need for nested `case` statements.
+*   **Simplifying Data Access**: Safely navigate and modify complex data structures with concise path-based operations.
+*   **Optimizing Performance**: Leverage controlled parallelism for I/O-bound tasks without sacrificing code clarity.
+
 ## Contributing
 
 We welcome contributions to Pipette! If you have a feature request, bug report, or would like to contribute code, please refer to the project's GitHub repository for guidelines and issue tracking.
+
+### `Pipette.Lens`
+
+Provides functional lenses for immutably focusing on, viewing, setting, and transforming specific parts of nested data structures.
+
+#### `key(atom)`
+
+Creates a lens that focuses on a specific key in a map.
+
+```elixir
+user = %{name: "Alice", age: 30}
+name_lens = Pipette.Lens.key(:name)
+
+Pipette.Lens.view(name_lens, user)
+# => "Alice"
+
+Pipette.Lens.set(name_lens, "Bob", user)
+# => %{name: "Bob", age: 30}
+
+Pipette.Lens.over(name_lens, &String.upcase/1, user)
+# => %{name: "ALICE", age: 30}
+```
+
+#### `index(integer)`
+
+Creates a lens that focuses on a specific index in a list.
+
+```elixir
+list = [10, 20, 30]
+second_element_lens = Pipette.Lens.index(1)
+
+Pipette.Lens.view(second_element_lens, list)
+# => 20
+
+Pipette.Lens.set(second_element_lens, 25, list)
+# => [10, 25, 30]
+
+Pipette.Lens.over(second_element_lens, &(&1 * 2), list)
+# => [10, 40, 30]
+```
+
+#### `compose(lens1, lens2)`
+
+Composes two lenses to create a new lens that focuses on a deeply nested part of a data structure.
+
+```elixir
+user = %{id: 1, profile: %{name: "Alice", email: "alice@example.com"}}
+name_lens = Pipette.Lens.compose(Pipette.Lens.key(:profile), Pipette.Lens.key(:name))
+
+Pipette.Lens.view(name_lens, user)
+# => "Alice"
+
+Pipette.Lens.set(name_lens, "Bob", user)
+# => %{id: 1, profile: %{name: "Bob", email: "alice@example.com"}}
+
+Pipette.Lens.over(name_lens, &String.upcase/1, user)
+# => %{id: 1, profile: %{name: "ALICE", email: "alice@example.com"}}
+```
+
+#### `view(lens, data)`
+
+Views the value at the focus of the lens.
+
+#### `set(lens, value, data)`
+
+Sets the value at the focus of the lens.
+
+#### `over(lens, fun, data)`
+
+Applies a function to the value at the focus of the lens.
+

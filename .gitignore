@@ -1,0 +1,18 @@
+# Elixir
+_build/
+deps/
+*.beam
+*.ez
+priv/static/
+*.secret.exs
+erl_crash.dump
+*.log
+tmp/
+.elixir_ls/
+
+# Editor/OS specific
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~

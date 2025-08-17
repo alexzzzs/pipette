@@ -18,6 +18,7 @@ Pipette is built upon four core principles, each addressing a key aspect of effi
 2.  **Result/Maybe Flow**: Tools for managing and propagating success and failure states within pipelines, promoting clear error handling and reducing boilerplate for `{:ok, value}` and `{:error, reason}` patterns.
 3.  **Deep Data Paths**: Convenient mechanisms for safely accessing and transforming deeply nested data structures, reducing the verbosity often associated with complex map or struct manipulations.
 4.  **Bounded Parallelism**: Functions that enable controlled parallel execution within pipelines, offering performance benefits for I/O-bound operations while maintaining a familiar `Enum`-like interface.
+5.  **Functional Lenses**: Tools for immutably focusing on, viewing, setting, and transforming specific parts of nested data structures.
 
 ## Installation
 
@@ -57,6 +58,19 @@ user_ids
 |> pmap(&Users.fetch!/1, max_concurrency: 32, ordered: false)
 |> pfilter(& &1.active)
 |> Enum.map(& &1.email)
+
+# Functional Lenses: Immutably access and transform nested data.
+# Lenses provide a powerful way to focus on specific parts of complex data structures.
+user = %{id: 1, profile: %{name: "Alice", email: "alice@example.com"}}
+name_lens = Pipette.Lens.compose(Pipette.Lens.key(:profile), Pipette.Lens.key(:name))
+
+user
+|> Pipette.Lens.view(name_lens) #=> "Alice"
+
+user
+|> Pipette.Lens.over(name_lens, &String.upcase/1)
+#=> %{id: 1, profile: %{name: "ALICE", email: "alice@example.com"}}
+```
 ```
 
 ## Why Pipette?
